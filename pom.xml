@@ -1,0 +1,149 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.nuamx.png.wri.avro</groupId>
+  <artifactId>warikafkaclient</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>warikafkaclient</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>17</java.version>
+    <schemaRegistryUrl>http://192.168.56.121:8082/apis/ccompat/v7</schemaRegistryUrl>
+    <avro.version>1.11.1</avro.version>
+    <poi.version>5.2.5</poi.version>
+    <poi.schemas.version>4.1.2</poi.schemas.version>
+    <dom4j.version>2.1.4</dom4j.version>
+    <confluent.version>7.7.0</confluent.version>
+    <kafka.version>3.7.1</kafka.version>
+    <guava.version>33.3.1-jre</guava.version>
+    <jackson.version>2.16.2</jackson.version>
+    <slf4j.version>1.7.36</slf4j.version>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>confluent</id>
+      <name>Confluent</name>
+      <url>https://packages.confluent.io/maven/</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>confluent</id>
+      <url>https://packages.confluent.io/maven/</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+	<dependencies>
+	    <!-- Kafka -->
+	    <dependency>
+	      <groupId>org.apache.kafka</groupId>
+	      <artifactId>kafka-clients</artifactId>
+	      <version>${kafka.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.apache.kafka</groupId>
+	      <artifactId>kafka-streams</artifactId>
+	      <version>${kafka.version}</version>
+	    </dependency>
+	    
+	    <!--Confluent-->
+	    <dependency>
+	      <groupId>io.confluent</groupId>
+	      <artifactId>kafka-avro-serializer</artifactId>
+	      <version>${confluent.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>io.confluent</groupId>
+	      <artifactId>kafka-streams-avro-serde</artifactId>
+	      <version>${confluent.version}</version>
+	    </dependency>
+		<dependency>
+		    <groupId>io.confluent</groupId>
+		    <artifactId>kafka-schema-serializer</artifactId>
+		    <version>${confluent.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>io.confluent</groupId>
+		    <artifactId>kafka-schema-registry-client</artifactId>
+	    	<version>${confluent.version}</version>
+		</dependency>
+	    
+	    <!--Others-->
+	    <dependency>
+		  <groupId>com.google.guava</groupId>
+		  <artifactId>guava</artifactId>
+		  <version>${guava.version}</version>
+		</dependency>
+	     <dependency>
+		    <groupId>org.apache.avro</groupId>
+		    <artifactId>avro</artifactId>
+	    	<version>${avro.version}</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.fasterxml.jackson.core</groupId>
+		  <artifactId>jackson-core</artifactId>
+		  <version>${jackson.version}</version>
+		</dependency>
+		
+		<!-- To enable console logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-reload4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+	
+	</dependencies>
+
+  <build>
+    
+   <plugins>
+  		<plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-compiler-plugin</artifactId>
+	        <version>3.12.1</version>
+	        <configuration>
+	          <source>${java.version}</source>
+	          <target>${java.version}</target>
+	          <compilerArgs>
+	            <arg>-Xlint:all</arg>
+	          </compilerArgs>
+	        </configuration>
+        </plugin>
+      
+      <!-- Generar archivos java-->
+         <plugin>
+	        <groupId>org.apache.avro</groupId>
+	        <artifactId>avro-maven-plugin</artifactId>
+            <version>1.11.3</version>
+	        <executions>
+	          <execution>
+	          <phase>generate-sources</phase>
+	          <goals>
+	            <goal>schema</goal>
+	          </goals>
+	          <configuration>
+	            <sourceDirectory>${project.basedir}/src/main/resources/com/nuamx/</sourceDirectory>
+	            <includes>
+	             <!--<include>CcpSettlementInst.avsc</include>
+	              <include>CcpOpeSettlementInst.avsc</include>-->
+	              <include>**/*.avsc</include>
+	            </includes>
+	            <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+	          </configuration>
+	         </execution>
+	       </executions>
+      	  </plugin>
+      <!---->      
+      
+   </plugins>
+   
+   </build>
+
+</project>

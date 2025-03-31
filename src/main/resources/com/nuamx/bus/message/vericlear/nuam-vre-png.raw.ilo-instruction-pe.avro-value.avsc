@@ -1,0 +1,207 @@
+{
+	"type": "record",
+	"name": "IloInstruction",
+	"namespace": "com.nuamx.bus.message.vericlear",
+	"fields": [
+		{
+			"name": "accountGroupCode",
+			"type": "string"
+		},
+		{
+			"name": "accountGroupCsdAccountCode",
+			"type": "string"
+		},
+		{
+			"name": "accountGroupType",
+			"type": "string"
+		},
+		{
+			"name": "accountId",
+			"type": "string"
+		},
+		{
+			"name": "assetKeySymbol",
+			"type": "string"
+		},
+		{
+			"name": "assetKeySymbolType",
+			"type": "string"
+		},
+		{
+			"name": "businessDate",
+			"type": "string"
+		},
+		{
+			"name": "ccpCode",
+			"type": "string"
+		},
+		{
+			"name": "clearingMemberCode",
+			"type": "string"
+		},
+		{
+			"name": "csdCode",
+			"type": "string"
+		},
+		{
+			"name": "csdParticipantCode",
+			"type": "string"
+		},
+		{
+			"name": "instructionId",
+			"type": "int"
+		},
+		{
+			"name": "instructionIdReference",
+			"type": "int"
+		},
+		{
+			"name": "instrument",
+			"type": {
+				"type": "record",
+				"name": "Instrument",
+				"namespace": "com.nuamx.bus.components",
+				"fields": [
+					{
+						"name": "currencyAdjustment",
+						"type": [
+							"null",
+							{
+								"type": "enum",
+								"name": "Currency",
+								"namespace": "com.nuamx.bus.constants",
+								"symbols": [
+									"CLP",
+									"COP",
+									"PEN",
+									"USD",
+									"EURO",
+									"UF",
+									"IVP"
+								]
+							}
+						],
+						"default": null
+					},
+					{
+						"name": "currencyIssue",
+						"type": [
+							"null",
+							"com.nuamx.bus.constants.Currency"
+						],
+						"default": null
+					},
+					{
+						"name": "exchange",
+						"type": {
+							"type": "enum",
+							"name": "Exchange",
+							"namespace": "com.nuamx.bus.constants",
+							"symbols": [
+								"NUAM",
+								"XSGO",
+								"XBVL",
+								"XBVC",
+								"XBCL"
+							]
+						}
+					},
+					{
+						"name": "isin",
+						"type": [
+							"null",
+							"string"
+						],
+						"default": null
+					},
+					{
+						"name": "securitySubType",
+						"type": [
+							"null",
+							"string"
+						],
+						"default": null
+					},
+					{
+						"name": "securityType",
+						"type": [
+							"null",
+							"string"
+						],
+						"default": null
+					},
+					{
+						"name": "symbol",
+						"type": "string"
+					}
+				]
+			}
+		},
+		{
+			"name": "isBeneficialReady",
+			"type": "boolean"
+		},
+		{
+			"name": "lastUpdatedTimestamp",
+			"type": "string"
+		},
+		{
+			"name": "lastUpdatedUser",
+			"type": "string"
+		},
+		{
+			"name": "positionAccountCsdAccountCode",
+			"type": "string"
+		},
+		{
+			"name": "productCode",
+			"type": "string"
+		},
+		{
+			"name": "quantity",
+			"type": {
+				"type": "string",
+				"java-class": "java.math.BigDecimal"
+			}
+		},
+		{
+			"name": "segmentCode",
+			"type": "string"
+		},
+		{
+			"name": "sequenceNumber",
+			"type": [
+				"null",
+				"int"
+			],
+			"default": null
+		},
+		{
+			"name": "settledQuantity",
+			"type": {
+				"type": "string",
+				"java-class": "java.math.BigDecimal"
+			}
+		},
+		{
+			"name": "settlementDate",
+			"type": "string"
+		},
+		{
+			"name": "settlementInstructionType",
+			"type": "string"
+		},
+		{
+			"name": "status",
+			"type": "string"
+		},
+		{
+			"name": "tradeDate",
+			"type": "string"
+		},
+		{
+			"name": "tradingMemberCode",
+			"type": "string"
+		}
+	]
+}

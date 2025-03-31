@@ -1,0 +1,53 @@
+{
+	"type": "record",
+	"name": "SettlementFulfillmentStatus",
+	"namespace": "com.nuamx.png.wri",
+	"fields": [
+		{
+			"name": "instructionId",
+			"type": "long"
+		},
+		{
+			"name": "tradeDate",
+			"type": "string"
+		},
+		{
+			"name": "settlementDate",
+			"type": "string"
+		},
+		{
+			"name": "quantity",
+			"type": "string"
+		},
+		{
+			"name": "settledQuantity",
+			"type": "string"
+		},
+		{
+			"name": "cashAmount",
+			"type": "string"
+		},
+		{
+			"name": "cashSettledAmount",
+			"type": "string"
+		},
+		{
+			"name": "status",
+			"type": "string"
+		},
+		{
+			"name": "ccpCode",
+			"type": "string"
+		},
+		{
+			"name": "lastUpdatedTimestamp",
+			"type": {
+				"type": "long",
+				"connect.version": 1,
+				"connect.name": "org.apache.kafka.connect.data.Timestamp",
+				"logicalType": "timestamp-millis"
+			}
+		}
+	],
+	"connect.name": "com.nuamx.png.wri.SettlementFulfillmentStatus"
+}

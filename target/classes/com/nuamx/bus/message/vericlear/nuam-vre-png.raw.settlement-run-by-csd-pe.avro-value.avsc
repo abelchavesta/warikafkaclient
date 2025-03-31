@@ -1,0 +1,48 @@
+{
+	"type": "record",
+	"name": "SettlementRunByCsd",
+	"namespace": "com.nuamx.bus.message.vericlear",
+	"fields": [
+		{
+			"name": "businessDate",
+			"type": "string"
+		},
+		{
+			"name": "ccpCode",
+			"type": "string"
+		},
+		{
+			"name": "csdCode",
+			"type": "string"
+		},
+		{
+			"name": "numberOfSettledInstructions",
+			"type": "int"
+		},
+		{
+			"name": "sequenceNumber",
+			"type": "int",
+			"doc": "Unique sequence Number nuam"
+		},
+		{
+			"name": "settlementDate",
+			"type": "string"
+		},
+		{
+			"name": "status",
+			"type": "string"
+		},
+		{
+			"name": "totalNumberOfInstructions",
+			"type": "int"
+		},
+		{
+			"name": "triggerTimestamp",
+			"type": "string"
+		},
+		{
+			"name": "user",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,59 @@
+{
+	"type": "record",
+	"name": "SettlementFulfillmentStatus",
+	"namespace": "com.nuamx.png.wri",
+	"fields": [
+		{
+			"name": "instructionId",
+			"type": "int"
+		},
+		{
+			"name": "tradeDate",
+			"type": "string"
+		},
+		{
+			"name": "settlementDate",
+			"type": "string"
+		},
+		{
+			"name": "quantity",
+			"type": {
+				"type": "string",
+				"java-class": "java.math.BigDecimal"
+			}
+		},
+		{
+			"name": "settledQuantity",
+			"type": {
+				"type": "string",
+				"java-class": "java.math.BigDecimal"
+			}
+		},
+		{
+			"name": "cashAmount",
+			"type": {
+				"type": "string",
+				"java-class": "java.math.BigDecimal"
+			}
+		},
+		{
+			"name": "cashSettledAmount",
+			"type": {
+					"type": "string",
+					"java-class": "java.math.BigDecimal"
+			}
+		},
+		{
+			"name": "status",
+			"type": "string"
+		},
+		{
+			"name": "ccpCode",
+			"type": "string"
+		},
+		{
+			"name": "lastUpdatedTimestamp",
+			"type": "string"
+		}
+	]
+}
